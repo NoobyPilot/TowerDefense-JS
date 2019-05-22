@@ -1,0 +1,26 @@
+{
+  "name": "towerdefense",
+  "version": "1.0.0",
+  "description": "",
+  "main": "www.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "latest",
+    "cookie-parser": "^1.4.4",
+    "debug": "latest",
+    "express": "^4.17.0",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.1.0",
+    "http-errors": "latest",
+    "mongoose": "^5.5.10",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1"
+  }
+}

@@ -1,0 +1,10 @@
+<form class="register-form"action="users/authRegister" method="post">
+    {{> messages }}
+    <input type="text" name="Username" placeholder="User Name">
+    <input type="text" name="Email" placeholder="E-Mail">
+    <input type="text" name="Email2" placeholder="E-Mail bestätigen">
+    <input type="password" name="Password" placeholder="Passwort">
+    <input type="password" name="Password2" placeholder="Passwort bestätgen">
+    <button> Create </button>
+    <p class="message">Already Registered? <a href="login"> Login </a> </p>
+</form>
