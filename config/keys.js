@@ -1,3 +1,3 @@
 module.exports = {
-    MongoURI: 'getUrOwnMongoURIToTryThis'
+    MongoURI: 'mongodb://localhost/sky-auth'
 };
