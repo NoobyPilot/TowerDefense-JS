@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('express-handlebars');
+var session = require('express-session');
 var flash = require('connect-flash');
 const mongoose = require('mongoose');
 var favicon = require('serve-favicon');
@@ -27,6 +28,13 @@ mongoose.connect(db, {
 app.engine('hbs', hbs( { extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts', partialsDir: __dirname + '/views/layouts/partials'}));
 app.set('views', path.join(__dirname, 'views/layouts'));
 app.set('view engine', 'hbs');
+
+app.use(session({
+    cookie: { maxAge: 60000 },
+    secret: 'SECRET',
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(express.static('public'));
@@ -53,16 +61,6 @@ app.use('/game', gameRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
-});
-
-app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error.hbs', { error: err.status });
 });
 
 module.exports = app;
